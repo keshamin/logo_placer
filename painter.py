@@ -14,7 +14,7 @@ class LogoPainter(object):
     def __init__(self,
                  logo_path,
                  target_path,  # Path to a certain image OR to a directory with images
-                 save_to_path=None,
+                 save_to_path='result',
                  logo_resize_rate=0.2,  # logo_min_dimension / img_min_dimension
                  margin_rate=0.01,  # margin_size / img_min_dimension
                  min_logo_min_dim=300,  # px, minimum size of logo min_dimension
@@ -34,7 +34,7 @@ class LogoPainter(object):
         self.corner_top = True if corner in (Corner.TOP_LEFT, Corner.TOP_RIGHT) else False
         self.min_logo_min_dim = min_logo_min_dim
 
-        if save_to_path and not os.path.isdir(save_to_path):
+        if not os.path.isdir(save_to_path):
             os.makedirs(save_to_path)
         self.save_to_path = save_to_path
 
